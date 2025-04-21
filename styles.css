@@ -1,0 +1,75 @@
+.jishichajian-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 5%;
+    min-width: 100px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 9999;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: move; /* 添加移动光标样式 */
+    user-select: none; /* 防止拖动时选中文本 */
+  }
+  
+  .jishichajian-timer {
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 8px;
+    transition: color 0.5s ease, font-size 0.5s ease;
+    color: #4CAF50; /* 默认绿色 */
+  }
+  
+  .jishichajian-controls {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
+  
+  .jishichajian-container:hover .jishichajian-controls {
+    opacity: 1;
+  }
+  
+  .jishichajian-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .jishichajian-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .jishichajian-container.paused {
+    opacity: 0.7;
+  }
+  
+  .jishichajian-container.paused .jishichajian-timer {
+    text-decoration: line-through;
+  }
+  
+  .jishichajian-container.hidden {
+    width: auto;
+    min-width: auto;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .jishichajian-container.hidden .jishichajian-controls {
+    opacity: 1;
+  }

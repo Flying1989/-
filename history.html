@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>浏览历史记录</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #4285f4;
+      margin-bottom: 30px;
+    }
+    
+    .filters {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    input, select {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    button:hover {
+      background-color: #3367d6;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #f0f0f0;
+      position: sticky;
+      top: 0;
+    }
+    
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+    
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
+    
+    .pagination button {
+      padding: 5px 10px;
+    }
+    
+    .pagination button.active {
+      background-color: #3367d6;
+    }
+    
+    .export-button {
+      margin-top: 20px;
+      background-color: #0f9d58;
+    }
+    
+    .export-button:hover {
+      background-color: #0b8043;
+    }
+    
+    .clear-button {
+      margin-top: 20px;
+      background-color: #db4437;
+    }
+    
+    .clear-button:hover {
+      background-color: #c53929;
+    }
+    
+    .button-row {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .no-data {
+      text-align: center;
+      margin-top: 50px;
+      color: #777;
+    }
+    
+    .chart-container {
+      margin-top: 30px;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <h1>浏览历史记录</h1>
+  
+  <div class="filters">
+    <div class="filter-group">
+      <label for="dateFrom">开始日期</label>
+      <input type="date" id="dateFrom">
+    </div>
+    
+    <div class="filter-group">
+      <label for="dateTo">结束日期</label>
+      <input type="date" id="dateTo">
+    </div>
+    
+    <div class="filter-group">
+      <label for="domainFilter">网站域名</label>
+      <input type="text" id="domainFilter" placeholder="输入域名...">
+    </div>
+    
+    <div class="filter-group">
+      <label for="sortBy">排序方式</label>
+      <select id="sortBy">
+        <option value="date-desc">日期（最新优先）</option>
+        <option value="date-asc">日期（最早优先）</option>
+        <option value="duration-desc">时长（从长到短）</option>
+        <option value="duration-asc">时长（从短到长）</option>
+      </select>
+    </div>
+    
+    <button id="applyFilters">应用筛选</button>
+  </div>
+  
+  <div class="chart-container" id="chartContainer">
+    <!-- 图表将在这里渲染 -->
+  </div>
+  
+  <table id="historyTable">
+    <thead>
+      <tr>
+        <th>日期</th>
+        <th>网站</th>
+        <th>标题</th>
+        <th>浏览时长</th>
+      </tr>
+    </thead>
+    <tbody id="historyBody">
+      <!-- 动态填充 -->
+    </tbody>
+  </table>
+  
+  <div class="pagination" id="pagination">
+    <!-- 动态填充 -->
+  </div>
+  
+  <div class="button-row">
+    <button id="exportData" class="export-button">导出数据</button>
+    <button id="clearHistory" class="clear-button">清除历史记录</button>
+  </div>
+  
+  <script src="history.js"></script>
+</body>
+</html>
